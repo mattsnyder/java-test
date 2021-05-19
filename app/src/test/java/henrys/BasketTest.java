@@ -1,6 +1,7 @@
 package henrys;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -64,4 +65,16 @@ public class BasketTest {
 
     // assertEquals(new BigDecimal("3.15"), basket.getTotal());
   }
+
+  // Price a basket containing: 6 apples and a bottle of milk, bought today, 
+  //   - Expected total cost = 1.90;
+  // @Test public void testScenarioTwo() {
+  //   Basket basket = new Basket()
+  //     .withDiscount(new TenOffApples()
+  //     //.withCheckoutOn(THREE_DAYS_HENCE));
+  //   basket.addItem(new StockItemBuilder().withPrice("0.10").withUnit("single").withName("apples").build(), 6);
+  //   basket.addItem(new StockItemBuilder().withPrice("1.30").withUnit("bottle").withName("milk").build());
+
+  //   assertEquals(new BigDecimal("1.90"), basket.getTotal());
+  // }
 }
