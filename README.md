@@ -51,5 +51,20 @@ All outputs must print to the command line.
      - Expected total cost = 1.84;
    - Price a basket containing: 3 apples, 2 tins of soup and a loaf of bread, bought in 5 days time,
      - Expected total cost = 1.97.
+
+
+# Run the application
+
+Thanks to the application plugin, you can run the application directly from the command line. The run task tells Gradle to execute the main method in the class assigned to the mainClass property.
+
+```
+$ ./gradlew run
+
+> Task :app:run
+Hello world!
+
+BUILD SUCCESSFUL
+2 actionable tasks: 2 executed
+```
  
  
