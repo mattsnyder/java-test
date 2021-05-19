@@ -26,4 +26,13 @@ public class BasketTest {
 
     assertEquals(new BigDecimal("0.75"), basket.getTotal());
   }
+
+  @Test public void testBasketWithMultipleOfSameItemNameAndPrice(){
+    Basket basket = new Basket();
+    basket.addItem(new StockItemBuilder().withPrice("1.20").withName("bread").build());
+    basket.addItem(new StockItemBuilder().withPrice("1.20").withName("bread").build());
+    basket.addItem(new StockItemBuilder().withPrice("1.20").withName("bread").build());
+
+    assertEquals(new BigDecimal("3.60"), basket.getTotal());
+  }
 }
