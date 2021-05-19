@@ -1,6 +1,5 @@
 package henrys;
 
-import henrys.StockItem;
 import java.util.ArrayList;
 import java.math.BigDecimal;
 
