@@ -36,6 +36,13 @@ public class BasketTest {
     assertEquals(new BigDecimal("3.60"), basket.getTotal());
   }
 
+  @Test public void testBasketWithAddMultipleOfSameItemUsingQuantity(){
+    Basket basket = new Basket();
+    basket.addItem(new StockItemBuilder().withPrice("1.20").withName("bread").build(), 3);
+
+    assertEquals(new BigDecimal("3.60"), basket.getTotal());
+  }
+
   // Price a basket containing: 3 tins of soup and 2 loaves of bread, bought today
   @Test public void testScenarioOne(){
     Basket basket = new Basket();

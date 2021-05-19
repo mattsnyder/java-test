@@ -19,4 +19,11 @@ public class Basket {
     contents.add(itemToAdd);
     return this;
   }
+
+  public Basket addItem(StockItem itemToAdd, Integer quantity){
+    for (int i=0; i<quantity; i++) {
+      contents.add(itemToAdd);
+    }
+    return this;
+  }
 }
