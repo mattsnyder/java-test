@@ -15,7 +15,6 @@ public class Basket {
       .map(i -> i.getPrice())
       .reduce(BigDecimal.ZERO, BigDecimal::add);
     
-    total.setScale(2, RoundingMode.HALF_UP);
     return total;
   }
 
