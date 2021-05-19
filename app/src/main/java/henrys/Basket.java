@@ -3,8 +3,6 @@ package henrys;
 import henrys.StockItem;
 import java.util.ArrayList;
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.math.RoundingMode;
 
 public class Basket {
   private final ArrayList<StockItem> contents = new ArrayList<StockItem>();
