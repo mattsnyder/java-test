@@ -46,11 +46,8 @@ public class BasketTest {
   // Price a basket containing: 3 tins of soup and 2 loaves of bread, bought today
   @Test public void testScenarioOne(){
     Basket basket = new Basket();
-    basket.addItem(new StockItemBuilder().withPrice("0.65").withUnit("tin").withName("soup").build());
-    basket.addItem(new StockItemBuilder().withPrice("0.65").withUnit("tin").withName("soup").build());
-    basket.addItem(new StockItemBuilder().withPrice("0.65").withUnit("tin").withName("soup").build());
-    basket.addItem(new StockItemBuilder().withPrice("0.80").withUnit("loaf").withName("bread").build());
-    basket.addItem(new StockItemBuilder().withPrice("0.80").withUnit("loaf").withName("bread").build());
+    basket.addItem(new StockItemBuilder().withPrice("0.65").withUnit("tin").withName("soup").build(), 3);
+    basket.addItem(new StockItemBuilder().withPrice("0.80").withUnit("loaf").withName("bread").build(), 2);
 
     // assertEquals(new BigDecimal("3.15"), basket.getTotal());
   }
