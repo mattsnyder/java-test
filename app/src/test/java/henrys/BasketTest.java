@@ -46,8 +46,14 @@ public class BasketTest {
   @Test public void testBasketContains(){
     Basket basket = new Basket();
     basket.addItem(new StockItemBuilder().withName("bread").build());
+    basket.addItem(new StockItemBuilder().withName("beer").build(), 6);
+    basket.addItem(new StockItemBuilder().withName("soup").build());
+    basket.addItem(new StockItemBuilder().withName("beef").build(), 4);
 
     assertSame(0, basket.contains("apples"));
+    assertSame(1, basket.contains("soup"));
+    assertSame(6, basket.contains("beer"));
+    assertSame(4, basket.contains("beef"));
   }
 
   // Price a basket containing: 3 tins of soup and 2 loaves of bread, bought today

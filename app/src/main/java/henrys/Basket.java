@@ -28,6 +28,12 @@ public class Basket {
   }
 
   public Integer contains(String itemName){
-    return 0;
+    Long count = contents
+      .stream()
+      .map(i -> i.getName())
+      .filter(name -> name == itemName)
+      .count();
+
+    return count.intValue();
   }
 }
