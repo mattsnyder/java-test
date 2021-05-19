@@ -8,4 +8,9 @@ public class TenOffApples implements DiscountStrategy {
   public BigDecimal getDiscount(Basket basket){
     return BigDecimal.ZERO;
   }
+
+  @Override
+  public boolean isApplicable(Basket basket){
+    return basket.contains("apples") > 0;
+  }
 }

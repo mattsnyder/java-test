@@ -6,4 +6,5 @@ import java.util.Date;
 
 public interface DiscountStrategy {
   public BigDecimal getDiscount(Basket basket);
+  public boolean isApplicable(Basket basket);
 }
