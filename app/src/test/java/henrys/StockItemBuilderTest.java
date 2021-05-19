@@ -30,4 +30,12 @@ public class StockItemBuilderTest {
 
     assertEquals(new BigDecimal("1.10"), item.getPrice());
   }
+
+  @Test public void testSpecifyingTheUnit(){
+    StockItem item = new StockItemBuilder()
+      .withUnit("tin")
+      .build();
+
+    assertEquals("tin", item.getUnit());
+  }
 }
