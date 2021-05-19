@@ -1,7 +1,5 @@
 package henrys;
 
-import henrys.StockItem;
-import henrys.StockItemBuilder;
 import java.math.BigDecimal;
 
 import org.junit.Test;
@@ -23,5 +21,13 @@ public class StockItemBuilderTest {
       .build();
 
     assertEquals("Something Different", item.getName());
+  }
+
+  @Test public void testSpecifyingThePrice(){
+    StockItem item = new StockItemBuilder()
+      .withPrice("1.10")
+      .build();
+
+    assertEquals(new BigDecimal("1.10"), item.getPrice());
   }
 }
