@@ -26,4 +26,8 @@ public class Basket {
     }
     return this;
   }
+
+  public Integer contains(String itemName){
+    return 0;
+  }
 }

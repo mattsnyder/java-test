@@ -43,6 +43,13 @@ public class BasketTest {
     assertEquals(new BigDecimal("3.60"), basket.getTotal());
   }
 
+  @Test public void testBasketContains(){
+    Basket basket = new Basket();
+    basket.addItem(new StockItemBuilder().withName("bread").build());
+
+    assertSame(0, basket.contains("apples"));
+  }
+
   // Price a basket containing: 3 tins of soup and 2 loaves of bread, bought today
   @Test public void testScenarioOne(){
     Basket basket = new Basket();
