@@ -16,4 +16,12 @@ public class StockItemBuilderTest {
     assertEquals("Default Product", builtItem.getName());
     assertEquals("single", builtItem.getUnit());
   }
+
+  @Test public void testSpecifyingTheName(){
+    StockItem item = new StockItemBuilder()
+      .withName("Something Different")
+      .build();
+
+    assertEquals("Something Different", item.getName());
+  }
 }
