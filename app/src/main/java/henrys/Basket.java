@@ -16,8 +16,7 @@ public class Basket {
   }
 
   public Basket addItem(StockItem itemToAdd){
-    contents.add(itemToAdd);
-    return this;
+    return this.addItem(itemToAdd, 1);
   }
 
   public Basket addItem(StockItem itemToAdd, Integer quantity){
