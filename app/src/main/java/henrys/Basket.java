@@ -17,6 +17,7 @@ public class Basket {
     return getTotal().subtract(totalDiscounts);
   }
 
+  // TODO Rafactor away from this method
   public BigDecimal getTotal(){
     BigDecimal total = contents
       .stream()
