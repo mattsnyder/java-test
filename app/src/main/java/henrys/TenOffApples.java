@@ -22,7 +22,11 @@ public class TenOffApples implements DiscountStrategy {
 
   @Override
   public boolean isActive(Date now){
-    return onOrAfter(this.startDate, now) && ((endDate == null) || (now.compareTo(this.endDate) < 0));
+    return onOrAfter(this.startDate, now) && onOrBefore(now, this.endDate);
+  }
+
+  private boolean onOrBefore(Date comparing, Date target){
+    return ((target == null) || (comparing.compareTo(target) < 0));
   }
 
   private boolean onOrAfter(Date target, Date comparing){
