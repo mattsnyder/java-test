@@ -1,12 +1,10 @@
 package henrys;
 
 import java.util.*;
-
-import java.util.Date;
-import java.util.ArrayList;
+import java.util.stream.*;
 
 public class DiscountRepository {
-  private ArrayList<DiscountStrategy> discounts = new ArrayList<DiscountStrategy>();
+  private List<DiscountStrategy> discounts = new ArrayList<DiscountStrategy>();
 
   public DiscountRepository(){
     this.discounts = new ArrayList<DiscountStrategy>();
@@ -16,8 +14,12 @@ public class DiscountRepository {
     this.discounts = discounts;
   }
 
-  public ArrayList<DiscountStrategy> getActive(Date todays_date){
+  public List getActive(Date todays_date){
+    List active = this.discounts
+      .stream()
+      .filter(discount -> discount.isActive(todays_date))
+      .collect(Collectors.<DiscountStrategy>toList());
 
-    return this.discounts;
+    return active;
   }  
 }
