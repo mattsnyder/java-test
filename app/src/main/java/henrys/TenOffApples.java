@@ -26,6 +26,7 @@ public class TenOffApples implements DiscountStrategy {
   }
 
   private boolean onOrBefore(Date comparing, Date target){
+    // DEBT get rid of this null check
     return ((target == null) || (comparing.compareTo(target) < 0));
   }
 
