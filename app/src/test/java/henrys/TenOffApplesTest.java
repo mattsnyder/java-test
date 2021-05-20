@@ -50,4 +50,9 @@ public class TenOffApplesTest {
     TenOffApples discount = new TenOffApples().startsOn(last_week()).endsOn(yesterday());
     assertFalse(discount.isActive(today()));
   }
+
+  // Assuming the Product Owner told us Discounts with no start or end are Active
+  @Test public void testWhenNoStartOrEndSpecified() {
+    assertTrue(new TenOffApples().isActive(today()));
+  }
 }

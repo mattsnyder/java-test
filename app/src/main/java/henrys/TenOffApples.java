@@ -31,7 +31,7 @@ public class TenOffApples implements DiscountStrategy {
   }
 
   private boolean onOrAfter(Date target, Date comparing){
-    return comparing.compareTo(target) >= 0;
+    return ((target == null) || (comparing.compareTo(target) >= 0));
   }
 
   public TenOffApples startsOn(Date startDate){
