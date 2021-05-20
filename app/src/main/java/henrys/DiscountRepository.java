@@ -14,12 +14,12 @@ public class DiscountRepository {
     this.discounts = discounts;
   }
 
-  public List getActive(Date todays_date){
+  public ArrayList getActive(Date todays_date){
     List active = this.discounts
       .stream()
       .filter(discount -> discount.isActive(todays_date))
       .collect(Collectors.<DiscountStrategy>toList());
 
-    return active;
+    return new ArrayList<DiscountStrategy>(active);
   }  
 }
