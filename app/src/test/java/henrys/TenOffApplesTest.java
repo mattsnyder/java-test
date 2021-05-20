@@ -11,6 +11,10 @@ public class TenOffApplesTest {
     return new Date(2021, 5, 20); // DEBT
   }
 
+  private Date tomorrow(){
+    return new Date(2021, 5, 21); // DEBT
+  }
+
   @Test public void testOnEmptyBasket() {
     assertFalse(new TenOffApples().isApplicable(new Basket()));
     assertEquals(new BigDecimal("0.00"), new TenOffApples().getDiscount(new Basket()));
@@ -27,5 +31,10 @@ public class TenOffApplesTest {
   @Test public void testWhenDiscountStartsToday() {
     TenOffApples discount = new TenOffApples().startsOn(today());
     assertTrue(discount.isActive(today()));
+  }
+
+  @Test public void testWhenDiscountStartsTomorrow() {
+    TenOffApples discount = new TenOffApples().startsOn(tomorrow());
+    assertFalse(discount.isActive(today()));
   }
 }

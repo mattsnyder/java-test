@@ -21,7 +21,7 @@ public class TenOffApples implements DiscountStrategy {
 
   @Override
   public boolean isActive(Date now){
-    return true;
+    return now.compareTo(startDate) >= 0;
   }
 
   public TenOffApples startsOn(Date startDate){
