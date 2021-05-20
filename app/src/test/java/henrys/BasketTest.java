@@ -77,4 +77,28 @@ public class BasketTest {
 
   //   assertEquals(new BigDecimal("1.90"), basket.getTotal());
   // }
+
+
+  // Price a basket containing: 6 apples and a bottle of milk, bought in 5 days time,
+  //    - Expected total cost = 1.84;
+  // @Test public void testScenarioThree() {
+  //   Basket basket = new Basket()
+  //     .withDiscounts(DiscountRepository.getActive(five_days_from_today())
+  //     .addItem(new StockItemBuilder().withPrice("0.10").withUnit("single").withName("apples").build(), 6)
+  //     .addItem(new StockItemBuilder().withPrice("1.30").withUnit("bottle").withName("milk").build());
+
+  //   assertEquals(new BigDecimal("1.84"), basket.getTotal());
+  // }
+
+  // //  - Price a basket containing: 3 apples, 2 tins of soup and a loaf of bread, bought in 5 days time,
+  // //    - Expected total cost = 1.97.
+  // @Test public void testScenarioFour() {
+  //   Basket basket = new Basket()
+  //     .withDiscounts(DiscountRepository.getActive(five_days_from_today())
+  //     .addItem(new StockItemBuilder().withPrice("0.10").withUnit("single").withName("apples").build(), 3)
+  //     .addItem(new StockItemBuilder().withPrice("0.65").withUnit("tin").withName("soup").build(), 2)
+  //     .addItem(new StockItemBuilder().withPrice("0.80").withUnit("loaf").withName("bread").build());
+
+  //   assertEquals(new BigDecimal("1.97"), basket.getTotal());
+  // }
 }
