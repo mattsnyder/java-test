@@ -1,10 +1,21 @@
 package henrys;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.math.BigDecimal;
 
 public class Basket {
   private final ArrayList<StockItem> contents = new ArrayList<StockItem>();
+  private DiscountRepository discountRepo = new DiscountRepository();
+
+  public BigDecimal getTotal(Date checkoutDate){
+    ArrayList<DiscountStrategy> activeDiscounts = discountRepo.getActive(checkoutDate);
+    BigDecimal totalDiscounts = activeDiscounts
+      .stream()
+      .map(discount -> discount.getDiscount(this))
+      .reduce(BigDecimal.ZERO, BigDecimal::add);
+    
+    return getTotal().subtract(totalDiscounts);
+  }
 
   public BigDecimal getTotal(){
     BigDecimal total = contents
@@ -34,5 +45,10 @@ public class Basket {
       .count();
 
     return count.intValue();
+  }
+
+  public Basket withDiscounts(DiscountRepository discountRepo){
+    this.discountRepo = discountRepo;
+    return this;
   }
 }

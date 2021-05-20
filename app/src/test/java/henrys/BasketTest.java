@@ -1,12 +1,28 @@
 package henrys;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.*;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BasketTest {
+  private Date today(){
+    return new Date(2021, 5, 20); // DEBT
+  }
+
+  private Date inFiveDays(){
+    return new Date(2021, 5, 25); // DEBT
+  }
+
+  private Date inThreeDays(){
+    return new Date(2021, 5, 23); // DEBT
+  }
+
+  private Date endOfNextMonth(){
+    return new Date(2021, 6, 30); // DEBT
+  }
+
   @Test public void testEmptyBasketHasZeroTotal() {
     assertEquals(new BigDecimal(0), new Basket().getTotal());
   }
@@ -81,14 +97,17 @@ public class BasketTest {
 
   // Price a basket containing: 6 apples and a bottle of milk, bought in 5 days time,
   //    - Expected total cost = 1.84;
-  // @Test public void testScenarioThree() {
-  //   Basket basket = new Basket()
-  //     .withDiscounts(DiscountRepository.getActive(five_days_from_today())
-  //     .addItem(new StockItemBuilder().withPrice("0.10").withUnit("single").withName("apples").build(), 6)
-  //     .addItem(new StockItemBuilder().withPrice("1.30").withUnit("bottle").withName("milk").build());
+  @Test public void testScenarioThree() {
+    DiscountStrategy tenPercentOffApples = new TenOffApples().startsOn(inThreeDays()).endsOn(endOfNextMonth());
+    ArrayList<DiscountStrategy> discounts = new ArrayList<DiscountStrategy>(Arrays.asList(tenPercentOffApples));
 
-  //   assertEquals(new BigDecimal("1.84"), basket.getTotal());
-  // }
+    Basket basket = new Basket()
+      .withDiscounts(new DiscountRepository(discounts))
+      .addItem(new StockItemBuilder().withPrice("0.10").withUnit("single").withName("apples").build(), 6)
+      .addItem(new StockItemBuilder().withPrice("1.30").withUnit("bottle").withName("milk").build());
+
+    assertEquals(new BigDecimal("1.84"), basket.getTotal(inFiveDays()));
+  }
 
   // //  - Price a basket containing: 3 apples, 2 tins of soup and a loaf of bread, bought in 5 days time,
   // //    - Expected total cost = 1.97.
