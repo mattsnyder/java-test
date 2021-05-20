@@ -1,5 +1,6 @@
 package henrys;
 
+import java.util.Date;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -15,5 +16,10 @@ public class TenOffApples implements DiscountStrategy {
   @Override
   public boolean isApplicable(Basket basket){
     return basket.contains("apples") > 0;
+  }
+
+  @Override
+  public boolean isActive(Date now){
+    return false;
   }
 }
