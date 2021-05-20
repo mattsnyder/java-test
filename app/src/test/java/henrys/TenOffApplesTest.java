@@ -15,6 +15,14 @@ public class TenOffApplesTest {
     return new Date(2021, 5, 21); // DEBT
   }
 
+  private Date yesterday(){
+    return new Date(2021, 5, 19); // DEBT
+  }
+
+  private Date last_week(){
+    return new Date(2021, 5, 16); // DEBT
+  }
+
   @Test public void testOnEmptyBasket() {
     assertFalse(new TenOffApples().isApplicable(new Basket()));
     assertEquals(new BigDecimal("0.00"), new TenOffApples().getDiscount(new Basket()));
@@ -35,6 +43,11 @@ public class TenOffApplesTest {
 
   @Test public void testWhenDiscountStartsTomorrow() {
     TenOffApples discount = new TenOffApples().startsOn(tomorrow());
+    assertFalse(discount.isActive(today()));
+  }
+
+  @Test public void testWhenDiscountStartedLastWeekAndEndedYesterday() {
+    TenOffApples discount = new TenOffApples().startsOn(last_week()).endsOn(yesterday());
     assertFalse(discount.isActive(today()));
   }
 }
