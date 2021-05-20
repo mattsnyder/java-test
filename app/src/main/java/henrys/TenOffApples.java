@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class TenOffApples implements DiscountStrategy {
   static final BigDecimal DISCOUNT = new BigDecimal(".01"); 
+  private Date startDate;
 
   @Override
   public BigDecimal getDiscount(Basket basket){
@@ -20,6 +21,11 @@ public class TenOffApples implements DiscountStrategy {
 
   @Override
   public boolean isActive(Date now){
-    return false;
+    return true;
+  }
+
+  public TenOffApples startsOn(Date startDate){
+    this.startDate = startDate;
+    return this;
   }
 }
